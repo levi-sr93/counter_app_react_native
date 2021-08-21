@@ -1,9 +1,11 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+
+import Colors from '../utils/constants';
+
 import Counters from '../screens/Counters';
 import Config from '../screens/Config';
-import Colors from '../utils/constants';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const BottomNavigation = createBottomTabNavigator();
 
