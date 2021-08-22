@@ -45,7 +45,9 @@ const Counters = () => {
   if (counterData.length === 0) {
     return (
       <NoContentFound>
-        <NoContentText>You don't have active counters</NoContentText>
+        <NoContentText testID="no-counters-title">
+          You don't have active counters
+        </NoContentText>
         <NoContentAnimation>
           <LottieView source={NoContentAnim} progress={0} loop autoPlay />
         </NoContentAnimation>

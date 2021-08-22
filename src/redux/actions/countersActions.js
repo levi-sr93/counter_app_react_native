@@ -1,11 +1,11 @@
 export const ADD_COUNTER = 'ADD_COUNTER';
+export const ADD_COUNTER_TEST = 'ADD_COUNTER_TEST';
 export const REMOVE_COUNTER = 'REMOVE_COUNTER';
 export const INCREMENT = 'INCREMENT';
 export const DECREMENT = 'DECREMENT';
 export const CLEAR_COUNTER = 'CLEAR_COUNTER';
 
-export const addCounter = ({title}) => {
-  const id = Math.random().toString(36).substr(2, 9);
+export const addCounter = ({title, id}) => {
   return {
     type: ADD_COUNTER,
     payload: {id, title: title, numbers: 0},

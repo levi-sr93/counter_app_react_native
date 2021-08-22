@@ -38,9 +38,11 @@ import {
   removeCounter,
 } from '../../redux/actions/countersActions';
 import AddCounterModal from './AddCounterModal';
+import {generateId} from '../../utils/generateId';
 
 const Config = () => {
   const [counterInfo, setCounterInfo] = useState({
+    id: generateId(),
     title: '',
   });
 

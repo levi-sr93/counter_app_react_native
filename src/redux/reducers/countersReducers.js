@@ -6,7 +6,7 @@ import {
   CLEAR_COUNTER,
 } from '../actions/countersActions';
 
-const inititalState = {
+export const inititalState = {
   counters: [],
 };
 

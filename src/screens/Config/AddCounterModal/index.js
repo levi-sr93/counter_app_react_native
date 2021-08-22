@@ -28,13 +28,15 @@ const AddCounterModal = ({
       }}>
       <Container onPress={() => setIsModalVisible(!isModalVisible)}>
         <Content>
-          <AddCounterMainTitle>
+          <AddCounterMainTitle testID="text-title">
             Please give your card a name
           </AddCounterMainTitle>
           <CounterTitleInput
+            testID="input-card-name"
             placeholder="Your counter card name"
             value={counterCardTitle}
             onChangeText={setCounterCardTitle}
+            autoCorrect={false}
           />
           <ButtonsSection>
             <CancelButton onPress={() => setIsModalVisible(!isModalVisible)}>
