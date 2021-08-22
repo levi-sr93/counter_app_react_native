@@ -17,30 +17,32 @@ import {
   AddNewCounterButton,
 } from './styles';
 import Colors from '../../utils/constants';
-
-const counterData = [
-  {id: 1, title: 'Counter #1', numbers: '003'},
-  {id: 2, title: 'Counter #2', numbers: '010'},
-  {id: 3, title: 'Counter #3', numbers: '100'},
-  {id: 4, title: 'Counter #4', numbers: '150'},
-];
+import {useSelector} from 'react-redux';
 
 const Counters = () => {
   const navigation = useNavigation();
+  const counterData = useSelector(state => state.counters.counters);
+
   const handleNewCounter = () => {
     navigation.navigate('Config');
   };
+
+  function handleEditCounterCard(item) {
+    navigation.navigate('Config', {item});
+  }
+
   const renderItem = ({item}) => {
     return (
       <CounterCard
         key={item.id}
         title={item.title}
         countNumber={item.numbers}
+        onPress={() => handleEditCounterCard(item)}
       />
     );
   };
 
-  if (counterData.length < 1) {
+  if (counterData.length === 0) {
     return (
       <NoContentFound>
         <NoContentText>You don't have active counters</NoContentText>

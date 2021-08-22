@@ -6,6 +6,8 @@ export const Colors = {
   LightBlue: '#0091FF',
   DarkBlue: '#182026',
   YellowGold: '#FFD700',
+  DangerRed: '#df4759',
+  SuccessGreen: '#42ba96',
 };
 
 export default Colors;

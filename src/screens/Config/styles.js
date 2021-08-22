@@ -54,7 +54,7 @@ export const ControlsHeader = styled.View`
 export const SelectedCounterControls = styled.View`
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 

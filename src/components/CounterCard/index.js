@@ -1,15 +1,11 @@
 import React from 'react';
-import {useNavigation} from '@react-navigation/native';
+import {useEffect} from 'react';
 
 import {Container, Title, NumberContainer, CountNumber} from './styles';
 
-const CounterCard = ({title, countNumber}) => {
-  const navigation = useNavigation();
-  function handleEditCounterCard() {
-    navigation.navigate('Config');
-  }
+const CounterCard = ({title, countNumber, onPress}) => {
   return (
-    <Container onPress={handleEditCounterCard}>
+    <Container onPress={onPress}>
       <Title>{title}</Title>
 
       <NumberContainer>
