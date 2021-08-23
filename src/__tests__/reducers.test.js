@@ -22,9 +22,9 @@ describe('Reducer', () => {
       counters: [mockCounter],
     };
 
-    expect(
-      countersReducers(undefined, actions.addCounter({title, id})),
-    ).toEqual(expectedResult);
+    expect(countersReducers(undefined, actions.addCounter(title, id))).toEqual(
+      expectedResult,
+    );
   });
 
   it('Should delete counter', () => {

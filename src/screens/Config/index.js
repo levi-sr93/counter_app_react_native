@@ -1,11 +1,7 @@
 import React, {useRef, useEffect, useState} from 'react';
 import CounterConfigButton from '../../components/CounterConfigButton';
 import LottieView from 'lottie-react-native';
-import {
-  useRoute,
-  useNavigation,
-  useFocusEffect,
-} from '@react-navigation/native';
+import {useRoute, useNavigation} from '@react-navigation/native';
 
 import {useDispatch, useSelector} from 'react-redux';
 
@@ -41,10 +37,8 @@ import AddCounterModal from './AddCounterModal';
 import {generateId} from '../../utils/generateId';
 
 const Config = () => {
-  const [counterInfo, setCounterInfo] = useState({
-    id: generateId(),
-    title: '',
-  });
+  const [counterInfo, setCounterInfo] = useState({});
+  const [title, setTitle] = useState('');
 
   const [isControllersShown, setIsControllersShown] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -61,34 +55,34 @@ const Config = () => {
     state.counters.counters.find(item => item.id === counterInfo.id),
   );
 
-  function handleAddCounterModal() {
-    setCounterInfo({title: ''});
+  const handleAddCounterModal = () => {
     setIsModalVisible(true);
-  }
+  };
 
-  function handleAddCounter() {
-    dispatch(addCounter(counterInfo));
-    setIsModalVisible(!isModalVisible);
+  const handleAddCounter = () => {
+    dispatch(addCounter(title, generateId()));
+    setTitle('');
+    setIsModalVisible(false);
     navigation.navigate('Counters');
-  }
+  };
 
-  function handleRemoveCounter() {
+  const handleRemoveCounter = () => {
     dispatch(removeCounter(counterInfo.id));
     setIsControllersShown(false);
     navigation.navigate('Counters');
-  }
+  };
 
-  function handleIncrement() {
+  const handleIncrement = () => {
     addProgress.current.play(2, 50);
     dispatch(increment(counterInfo.id));
-  }
+  };
 
-  function handleDecrement() {
+  const handleDecrement = () => {
     removeProgress.current.play(2, 30);
     dispatch(decrement(counterInfo.id));
-  }
+  };
 
-  function handleClearCount() {
+  const handleClearCount = () => {
     resetProgress.current.play(2, 60);
     const onPressYes = () => {
       dispatch(clearCounter(counterInfo.id));
@@ -107,7 +101,7 @@ const Config = () => {
         },
       ],
     );
-  }
+  };
   useEffect(() => {
     if (route.params?.item !== undefined) {
       setCounterInfo(route.params.item);
@@ -120,17 +114,19 @@ const Config = () => {
       <AddCounterModal
         isModalVisible={isModalVisible}
         setIsModalVisible={setIsModalVisible}
-        counterCardTitle={counterInfo.title}
-        setCounterCardTitle={e => setCounterInfo({...counterInfo, title: e})}
+        counterCardTitle={title}
+        setCounterCardTitle={e => setTitle(e)}
         handleAddCounter={handleAddCounter}
       />
       <MainHeader>Counters</MainHeader>
       <CountersConfigSection>
         <CounterConfigButton
+          icon="circle-with-plus"
           operation="Add Counter"
           handlePress={handleAddCounterModal}
         />
         <CounterConfigButton
+          icon="circle-with-cross"
           operation="Remove Counter"
           handlePress={handleRemoveCounter}
         />

@@ -5,10 +5,10 @@ export const INCREMENT = 'INCREMENT';
 export const DECREMENT = 'DECREMENT';
 export const CLEAR_COUNTER = 'CLEAR_COUNTER';
 
-export const addCounter = ({title, id}) => {
+export const addCounter = (title, id) => {
   return {
     type: ADD_COUNTER,
-    payload: {id, title: title, numbers: 0},
+    payload: {id, title, numbers: 0},
   };
 };
 
