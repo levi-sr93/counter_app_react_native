@@ -13,10 +13,11 @@ export const Container = styled.View`
 export const Content = styled.View`
   background-color: ${Colors.PlainWhite};
   width: 90%;
-  height: 30%;
+  height: 50%;
   border-radius: 8px;
   padding: 20px;
   align-items: center;
+  justify-content: space-around;
 `;
 
 export const AddCounterMainTitle = styled.Text`
@@ -26,7 +27,11 @@ export const AddCounterMainTitle = styled.Text`
 `;
 
 export const CounterTitleInput = styled.TextInput`
-  padding: 10px;
+  padding: 20px;
+  background-color: ${Colors.LightGray};
+  border-radius: 8px;
+  color: ${Colors.DarkGray};
+  font-size: 22px;
 `;
 
 export const ButtonsSection = styled.View`

@@ -28,7 +28,6 @@ const Counters = () => {
   };
 
   const handleEditCounterCard = item => {
-    console.log('Valor CONFIG:::', item);
     navigation.navigate('Config', {item});
   };
 
